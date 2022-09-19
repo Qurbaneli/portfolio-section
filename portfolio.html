@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://kit.fontawesome.com/20081ac52e.js" crossorigin="anonymous"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <title> Portfolio </title>
+
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+
+
+    body
+    {
+      font-family: "Poppins";
+    }
+
+    #portfolio
+
+    {
+     background: #191923;
+     color:#fff;
+    }
+
+
+    .row
+
+    {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between.;
+    }
+
+    .portfolio-list
+    {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+
+    }
+
+    h2
+    {
+      font-size: 27px;
+      font-weight: 400;
+      margin-bottom:30px;
+    }
+
+    .portfolio-list li
+    {
+      margin-right: 30px;
+      cursor:pointer;
+    }
+
+    .portfolio-box
+    {
+      width:500px;
+    }
+
+    .portfolio-box img
+    {
+     width:100%;
+      animation-name:portfolio-effect;
+      animation-duration: 1s;
+    }
+
+    @keyframes portfolio-effect{
+  from {transform:scale(0);}
+  to {transform:scale(1);}
+}
+
+    
+
+  </style>
+</head>
+
+<body>
+
+<section id="portfolio">
+
+<div class="portfolio-heading">
+
+  <h2>Portfolio</h2>
+
+<ul class="portfolio-list">
+
+  <li id="all-categories"> ALL CATEGORIES</li>
+  <li onclick="portfolio()" id="web-templates"> WEB TEMPLATES </li>
+  <li id="ui-elements">UI ELEMENTS</li>
+  <li id="logo">LOGOS </li>
+  <li id="drawings">DRAWINGS</li>
+   
+</ul>
+</div>
+  
+<div class="row">
+
+
+
+
+</div>
+
+</section>
+
+
+
+  <script>
+
+    let images = ["web1","web2","ui1","ui2","ui3","logo1","logo2","logo3","logo4","drawings1","drawings2","drawings3"];
+    let row = document.querySelector(".row");
+
+    let allCategories = document.querySelector("#all-categories");
+    let webTemplates = document.querySelector("#web-templates");
+    let uiElements = document.querySelector("#ui-elements");
+    let logo = document.querySelector("#logo");
+    let drawings = document.querySelector("#drawings");
+
+    row.innerHTML="";
+
+    images.forEach(e=> {
+
+      e=e+".jpg";
+      row.innerHTML+=`  <div class="portfolio-box">
+        <img src="${e}" alt="">
+          </div>`;     
+    });
+
+    allCategories.addEventListener("click",function() {
+      
+      row.innerHTML="";
+
+    images.forEach(e=> {
+
+      e=e+".jpg";
+      row.innerHTML+=`  <div class="portfolio-box">
+        <img src="${e}" alt="">
+          </div>`;     
+    });
+     
+    });
+
+
+    webTemplates.addEventListener("click",function() {
+
+      let result = images.filter(e => e.includes('web'))
+      row.innerHTML="";
+
+    result.forEach(e=> {
+
+      e=e+".jpg";
+      row.innerHTML+=`  <div class="portfolio-box">
+        <img src="${e}" alt="">
+          </div>`;     
+    });
+
+    });
+
+    uiElements.addEventListener("click",function() {
+     
+      let result = images.filter(e => e.includes('ui'))
+      row.innerHTML="";
+
+    result.forEach(e=> {
+
+      e=e+".jpg";
+      row.innerHTML+=`  <div class="portfolio-box">
+        <img src="${e}" alt="">
+          </div>`;     
+    });
+
+    });
+
+   logo.addEventListener("click",function() {
+      
+    let result = images.filter(e => e.includes('logo'))
+      row.innerHTML="";
+    result.forEach(e=> {
+
+      e=e+".jpg";
+      row.innerHTML+=`  <div class="portfolio-box">
+        <img src="${e}" alt="">
+          </div>`;     
+    });
+
+    });
+
+    drawings.addEventListener("click",function() {
+
+      let result = images.filter(e => e.includes('drawings'))
+      row.innerHTML="";
+    result.forEach(e=> {
+
+      e=e+".jpg";
+      row.innerHTML+=`  <div class="portfolio-box">
+        <img src="${e}" alt="">
+          </div>`;     
+    });
+
+    });
+
+
+ </script>
+
+</body>
+
+</html>
